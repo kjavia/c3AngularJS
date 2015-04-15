@@ -1,0 +1,34 @@
+{
+  "name": "c3AngularJS",
+  "main": [
+    "c3angular.js"
+  ],
+  "version": "0.0.1",
+  "homepage": "https://github.com/kjavia/c3AngularJS",
+  "authors": [
+    "Ketan Javia"
+  ],
+  "description": "AngularJS directives and services for the C3 library",
+  "keywords": [
+    "c3",
+    "AngularJS",
+    "charts",
+    "d3"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "htdocs",
+    "spec",
+    "src",
+    "package.json",
+    "component.json",
+    "gulpfile.*"
+  ],
+  "dependencies": {
+    "c3": "<=0.4.10",
+    "angular:": "<=1.3.5"
+  }
+}

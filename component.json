@@ -1,0 +1,16 @@
+{
+	"name": "c3AngularJS",
+	"repo": "kjavia/c3AngularJS",
+	"description": "AnuglarJS Directives and Services for C3 Chart library.",
+	"version": "0.0.1",
+	"keywords": ["c3","AnuglarJS","d3","charts","visualizations"],
+	"dependencies": {
+		"masayuki0812/c3": "v0.4.10"
+	},
+	"development": {},
+	"license": "MIT",
+	"main": "c3angular.js",
+	"scripts": [
+		"c3angular.js"
+	]
+}

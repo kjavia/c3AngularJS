@@ -1,0 +1,17 @@
+!!! 5
+%html
+  %head
+    %title= "C3AngularJS Demos"
+    %link{ href: 'css/bootstrap.min.css', :media => "screen", rel: 'stylesheet' }
+    %script{ src: '//ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.min.js', type: 'text/javascript'}
+    %script{ src: '//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.13/angular-ui-router.min.js', type: 'text/javascript'}
+    %script{ src: 'js/c3-charts.angular.js', type: 'text/javascript'}
+    %script{ src: 'js/app.js', type: 'text/javascript'}
+  %body
+    .container{'ng-app' => 'demoApp'}
+      .row
+        .col3
+          menu
+        .col9{'ng-controller' => 'Example1Controller as vm'}
+          %div{'c3-chart' => true, raw: 'example1Data'}
+          {{vm.test}}
