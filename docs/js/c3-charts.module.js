@@ -11,5 +11,4 @@
 (function() {
   'use strict';
   angular.module('c3-charts', []);
-  console.log('testing');
 })();

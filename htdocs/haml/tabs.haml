@@ -1,0 +1,11 @@
+%div{role: 'tabpanel'}
+  %ul.nav.nav-tabs{role: 'tablist'}
+    %li.active{role: 'presentation'}
+      %a{href: '#example1-html', role: 'tab', data:{toggle: 'tab'}} Html
+    %li{role: 'presentation'}
+      %a{href: '#example1-js', role: 'tab', data:{toggle: 'tab'}} Javascript
+  .tab-content
+    .tab-pane.active{id:'example1-html', role:'tabpanel'}
+      %pre.code-toolbar.line-numbers{'prism-code' => true, 'data-src' => '{{vm.elementId}}.html'}
+    .tab-pane{id: 'example1-js', role:'tabpanel'}
+      %pre.code-toolbar.line-numbers{'prism-code' => true, 'data-src' => 'scripts/src/{{vm.elementId}}.controller.js'}
