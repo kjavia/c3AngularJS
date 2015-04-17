@@ -1,6 +1,16 @@
 body {
   padding-top: 60px;
+  padding-bottom: 50px;
 }
-.main{
+.main {
   padding-top: 1em;
+}
+footer {
+  position: fixed;
+  bottom: 0;
+  background-color: #3e3f3a;
+  color: white;
+  height: 50px;
+  width: 100%;
+  line-height: 50px;
 }
