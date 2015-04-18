@@ -1,0 +1,18 @@
+<div role='tabpanel'>
+  <ul class='nav nav-tabs' role='tablist'>
+    <li class='active' role='presentation'>
+      <a data-target='#html' data-toggle='tab' href='javascript;;;' role='tab'>Html</a>
+    </li>
+    <li role='presentation'>
+      <a data-target='#js' data-toggle='tab' href='javascript;;;' role='tab'>Javascript</a>
+    </li>
+  </ul>
+  <div class='tab-content'>
+    <div class='tab-pane active' id='html' role='tabpanel'>
+      <pre class='code-toolbar line-numbers' data-src='{{vm.elementId}}.html' prism-code></pre>
+    </div>
+    <div class='tab-pane' id='js' role='tabpanel'>
+      <pre class='code-toolbar line-numbers' data-src='scripts/src/{{vm.elementId}}.controller.js' prism-code></pre>
+    </div>
+  </div>
+</div>
