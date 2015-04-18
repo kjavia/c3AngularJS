@@ -1,8 +1,0 @@
-%div{'ng-controller' => 'Example1Controller as vm'}
-  %h3 Example 1
-  %p
-    A basic example showing usage of 'raw' object which
-    contains all options including data for the C3 chart.
-    It is compatible with the parameter passed to the c3.generate function.
-  %div{'c3-chart' => true, id: '{{vm.elementId}}', raw: 'vm.data', group: '{{vm.group}}'}
-  %div{'ng-include' => true, src: '"tabs.html"'}
