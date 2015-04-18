@@ -28,30 +28,12 @@ gulp.task('src-scripts', function() {
   return gulp.src('src/**/*.js')
     .pipe(concat('c3-charts.angular.js'))
     .pipe(gulp.dest('dist'))
-    .pipe(gulp.dest('htdocs/js'))
+    // this assumes that the gh-pages branch working folder is one level up.
+    // gh-pages branch is for the demo app.
+    .pipe(gulp.dest('../c3AngularJSDemo/js'))
     .pipe(gulp_rename('c3-charts.angular.min.js'))
     .pipe(uglify())
     .pipe(gulp.dest('dist'));
 });
 
-gulp.task('src-demo', function() {
-  return gulp.src('htdocs/scripts/**/*.js')
-    .pipe(concat('app.js'))
-    .pipe(gulp.dest('htdocs/js'));
-});
-
-gulp.task('haml', function() {
- return gulp.src('htdocs/haml/**/*.haml', {read: true}).
-       pipe(haml()).
-       pipe(gulp.dest('htdocs'));
-});
-
-// Watch for changes in Haml files
-// gulp.task('haml-watch', function() {
-//   gulp.src('htdocs/haml/**/*.haml', {read: false}).
-//        pipe(watch()).
-//        pipe(haml()).
-//        pipe(gulp.dest('htdocs'));
-// });
-
-gulp.task('default', ['ngdocs', 'src-scripts', 'src-demo', 'haml'], function(){});
+gulp.task('default', ['ngdocs', 'src-scripts'], function(){});

@@ -21,7 +21,7 @@
   angular.module('c3-charts').directive('c3Chart', c3Chart);
 
   function c3Chart() {
-    var chart = {
+    var chartDefinition = {
       link: link,
       restrict: 'A',
       scope: {
@@ -32,20 +32,68 @@
       template: '<div />'
     };
 
-    return chart;
+    return chartDefinition;
   }
 
   function link(scope, element) {
+    var chart;
+
+    function isFieldMatching(scope, data, fieldName) {
+      if (data[fieldName] && scope[fieldName]) {
+        return (data[fieldName].localeCompare(scope[fieldName]) === 0);
+      }
+      return false;
+    }
+
+    function isEventApplicable(scope, data) {
+
+      if (!data || (!data.group && !data.id)) {
+        // if event does not target specific group or id
+        return true;
+      }
+
+      if (data.group && isFieldMatching(scope, data, 'group')) {
+        return true;
+      } else if (data.id && isFieldMatching(scope, data, 'id')) {
+        return true;
+      } else if (!data.id && !data.group) {
+        return true;
+      }
+      return false;
+    }
+
     function onGenerateCharts(event, data) {
-      // if the generate chart event is meant for this instance or all
-      if ((!scope.group || !data.group) ||
-        (scope.group && data.group && scope.group.localeCompare(data.group) === 0)) {
+      if (isEventApplicable(scope, data)) {
         scope.raw.bindto = scope.raw.bindto || '#' + scope.id;
-        c3.generate(scope.raw);
+        chart = c3.generate(scope.raw);
+      }
+    }
+
+    function onChartResize(event, data) {
+      var width, height, size;
+      if (chart && isEventApplicable(scope, data)) {
+        if (data) {
+          width = data.width;
+          height = data.height;
+        }
+        size = {
+          width: width,
+          height: height
+        };
+        chart.resize(size);
+      }
+    }
+
+    function onChartTransform(event, data) {
+      if (chart && isEventApplicable(scope, data)) {
+        var args = [data.type, data.dataName];
+        chart.transform.apply(this, args);
       }
     }
 
     scope.$on('c3.generate', onGenerateCharts);
+    scope.$on('c3.resize', onChartResize);
+    scope.$on('c3.transform', onChartTransform);
   }
 
 })();
