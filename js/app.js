@@ -30,6 +30,20 @@
           data: {
             title: 'Example 4 - Multiple Groups'
           }
+        })
+        .state('example5', {
+          url: '/example5',
+          templateUrl: 'example5.html',
+          data: {
+            title: 'Example 5 - Change Chart Type'
+          }
+        })
+        .state('example6', {
+          url: '/example6',
+          templateUrl: 'example6.html',
+          data: {
+            title: 'Example 6 - Change Chart Size'
+          }
         });
       $urlRouterProvider.otherwise("/example1");
     })
@@ -309,10 +323,94 @@
     });
 
 
-    vm.renderCharts = function(groupName) {
+    vm.renderCharts = function(data) {
+      $("[c3-chart]").children().remove(); //clear the charts
+      $scope.$broadcast('c3.generate', data);
+    }
+  }
+})();
+
+(function() {
+  'use strict';
+  angular.module('demoApp')
+    .controller('Example5Controller', example5Ctrl);
+
+  example5Ctrl.$inject = ['$scope', '$timeout'];
+
+  function example5Ctrl($scope, $timeout) {
+    var vm = this;
+    vm.group = 'group1';
+    vm.elementId = 'example5';
+
+    vm.data = {
+      bindto: '#' + this.elementId,
+      data: {
+        columns: [
+          ['data1', 30, 200, 100, 400, 150, 250],
+          ['data2', 50, 20, 10, 40, 15, 25]
+        ]
+      }
+    };
+    // wait for the directive to be attached.
+    $timeout(function() {
+      // trigger an event that will render the chart
       $scope.$broadcast('c3.generate', {
-        group: groupName
+        group: vm.group
       });
+    });
+
+    vm.transformChart = function(type, dataName) {
+      var eventData = {
+        id: 'example5',
+        type: type
+      };
+
+      if (dataName) {
+        eventData.dataName = dataName;
+      }
+
+      $scope.$broadcast('c3.transform', eventData);
+    }
+  }
+})();
+
+(function() {
+    'use strict';
+    angular.module('demoApp')
+      .controller('Example6Controller', example6Ctrl);
+
+  example6Ctrl.$inject = ['$scope', '$timeout'];
+
+  function example6Ctrl($scope, $timeout) {
+    var vm = this;
+    vm.group = 'group1';
+    vm.elementId = 'example6';
+
+    vm.data = {
+      bindto: '#' + this.elementId,
+      data: {
+        columns: [
+          ['data1', 30, 200, 100, 400, 150, 250],
+          ['data2', 50, 20, 10, 40, 15, 25]
+        ]
+      }
+    };
+
+    // wait for the directive to be attached.
+    $timeout(function() {
+      // trigger an event that will render the chart
+      $scope.$broadcast('c3.generate', {
+        group: vm.group
+      });
+    });
+
+    vm.resizeChart = function() {
+      var eventData = {
+        id: 'example6',
+        width: 500,
+        height: 200
+      }
+      $scope.$broadcast('c3.resize', eventData);
     }
   }
 })();

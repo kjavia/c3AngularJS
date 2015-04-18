@@ -107,10 +107,9 @@
     });
 
 
-    vm.renderCharts = function(groupName) {
-      $scope.$broadcast('c3.generate', {
-        group: groupName
-      });
+    vm.renderCharts = function(data) {
+      $("[c3-chart]").children().remove(); //clear the charts
+      $scope.$broadcast('c3.generate', data);
     }
   }
 })();

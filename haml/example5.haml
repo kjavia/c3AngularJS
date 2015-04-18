@@ -1,0 +1,17 @@
+%div{'ng-controller' => 'Example5Controller as vm'}
+  %h3 Example 5
+  %p
+    It is possible to issue a 'c3.transform' event with a chart id and new chart type and optionally a data name.
+  .row
+    .col-lg-3
+      .btn.btn-default{'ng-click' => 'vm.transformChart("bar")'}
+        Change all Data to Bar Chart
+    .col-lg-3
+      .btn.btn-default{'ng-click' => 'vm.transformChart("bar","data1")'}
+        Change Series 1 to Bar Chart
+    .col-lg-3
+      .btn.btn-default{'ng-click' => 'vm.transformChart("line")'}
+        Change back to Line Chart
+
+  %div{'c3-chart' => true, id: '{{vm.elementId}}', raw: 'vm.data', group: '{{vm.group}}'}
+  %div{'ng-include' => true, src: '"tabs.html"'}

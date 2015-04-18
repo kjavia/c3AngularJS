@@ -30,6 +30,20 @@
           data: {
             title: 'Example 4 - Multiple Groups'
           }
+        })
+        .state('example5', {
+          url: '/example5',
+          templateUrl: 'example5.html',
+          data: {
+            title: 'Example 5 - Change Chart Type'
+          }
+        })
+        .state('example6', {
+          url: '/example6',
+          templateUrl: 'example6.html',
+          data: {
+            title: 'Example 6 - Change Chart Size'
+          }
         });
       $urlRouterProvider.otherwise("/example1");
     })

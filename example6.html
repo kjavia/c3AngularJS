@@ -1,0 +1,15 @@
+<div ng-controller='Example6Controller as vm'>
+  <h3>Example 5</h3>
+  <p>
+    This demo shows usage of the 'c3.resize' event to resize a chart after it is rendered.
+  </p>
+  <div class='row'>
+    <div class='col-lg-3'>
+      <div class='btn btn-default' ng-click='vm.resizeChart()'>
+        Resize chart to 500 x 200
+      </div>
+    </div>
+  </div>
+  <div c3-chart group='{{vm.group}}' id='{{vm.elementId}}' raw='vm.data'></div>
+  <div ng-include src='"tabs.html"'></div>
+</div>

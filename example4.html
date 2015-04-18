@@ -7,19 +7,23 @@
   </p>
   <div class='row'>
     <div class='col-lg-12'>
-      <button class='btn btn-default' ng-click='vm.renderCharts("group1")'>
+      <button class='btn btn-default' ng-click='vm.renderCharts({group: "group1"})'>
         Render Group 1
       </button>
-      <button class='btn btn-default' ng-click='vm.renderCharts("group2")'>
+      <button class='btn btn-default' ng-click='vm.renderCharts({group: "group2"})'>
         Render Group 2
       </button>
+      <button class='btn btn-default' ng-click='vm.renderCharts({id: "chart1"})'>
+        Render Chart 1 Only
+      </button>
       <button class='btn btn-default' ng-click='vm.renderCharts()'>
-        Render Both
+        Render All
       </button>
     </div>
   </div>
   <div class='row' style='margin-bottom:30px;'>
     <div class='col-lg-4' ng-repeat='c in vm.items'>
+      {{vm.isLoading}}
       <div c3-chart group='{{c.group}}' id='{{c.elementId}}' raw='c'></div>
     </div>
   </div>

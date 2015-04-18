@@ -6,14 +6,17 @@
     Sending empty group will have all charts respond to the event.
   .row
     .col-lg-12
-      %button.btn.btn-default{'ng-click' => 'vm.renderCharts("group1")'}
+      %button.btn.btn-default{'ng-click' => 'vm.renderCharts({group: "group1"})'}
         Render Group 1
-      %button.btn.btn-default{'ng-click' => 'vm.renderCharts("group2")'}
+      %button.btn.btn-default{'ng-click' => 'vm.renderCharts({group: "group2"})'}
         Render Group 2
+      %button.btn.btn-default{'ng-click' => 'vm.renderCharts({id: "chart1"})'}
+        Render Chart 1 Only
       %button.btn.btn-default{'ng-click' => 'vm.renderCharts()'}
-        Render Both
+        Render All
   .row{'style' => 'margin-bottom:30px;'}
     .col-lg-4{'ng-repeat' => 'c in vm.items'}
+      {{vm.isLoading}}
       %div{'c3-chart' => true, id: '{{c.elementId}}', raw: 'c', group: '{{c.group}}'}
 
   %div{'ng-include' => true, src: '"tabs.html"'}
