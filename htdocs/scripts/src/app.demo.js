@@ -16,6 +16,20 @@
           data: {
             title: 'Example 2 - Mouse Events'
           }
+        })
+        .state('example3', {
+          url: '/example3',
+          templateUrl: 'example3.html',
+          data: {
+            title: 'Example 3 - Chart Type'
+          }
+        })
+        .state('example4', {
+          url: '/example4',
+          templateUrl: 'example4.html',
+          data: {
+            title: 'Example 4 - Multiple Groups'
+          }
         });
       $urlRouterProvider.otherwise("/example1");
     })

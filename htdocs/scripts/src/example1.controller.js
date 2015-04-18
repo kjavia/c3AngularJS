@@ -19,8 +19,9 @@
         ]
       }
     };
+    // wait for the directive to be attached.
     $timeout(function() {
-      //give it a sec for the directive to be attached.
+      // trigger an event that will render the chart
       $scope.$broadcast('c3.generate', {
         group: vm.group
       });

@@ -40,7 +40,7 @@
       // if the generate chart event is meant for this instance or all
       if ((!scope.group || !data.group) ||
         (scope.group && data.group && scope.group.localeCompare(data.group) === 0)) {
-        scope.raw.bindto = scope.raw.bindto || element;
+        scope.raw.bindto = scope.raw.bindto || '#' + scope.id;
         c3.generate(scope.raw);
       }
     }

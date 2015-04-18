@@ -42,7 +42,7 @@
 
   function example2Ctrl($scope, $timeout, $state) {
     var vm = this;
-    vm.group = 'group1';
+    vm.group = 'group2';
     vm.elementId = 'example2';
     vm.state = $state;
     vm.data = {
