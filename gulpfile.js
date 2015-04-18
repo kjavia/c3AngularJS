@@ -7,21 +7,21 @@ var gulp = require('gulp')
 
 
 gulp.task('jshint', function () {
-    gulp.src('htdocs/**/*.js')
+    gulp.src('scripts/src/*.js')
         .pipe(jshint('.jshintrc'))
         .pipe(jshint.reporter('jshint-stylish'));
 });
 
 gulp.task('scripts', function() {
-  return gulp.src('htdocs/scripts/**/*.js')
+  return gulp.src('scripts/src/*.js')
     .pipe(concat('app.js'))
-    .pipe(gulp.dest('htdocs/js'));
+    .pipe(gulp.dest('./js'));
 });
 
 gulp.task('haml', function() {
- return gulp.src('htdocs/haml/**/*.haml', {read: true}).
+ return gulp.src('haml/**/*.haml', {read: true}).
        pipe(haml()).
-       pipe(gulp.dest('htdocs'));
+       pipe(gulp.dest('.'));
 });
 
 // Watch for changes in Haml files

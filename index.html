@@ -20,11 +20,20 @@
     <div class='container main' ng-app='demoApp'>
       <div class='row'>
         <nav class='navbar navbar-default navbar-fixed-top'>
-          <div class='container-fluid'>
+          <div class='container'>
             <div class='navbar-header'>
               <a class='navbar-brand' href='#'>
                 C3-AngularJS Demo
               </a>
+            </div>
+            <div class='navbar-collapse collapse'>
+              <ul class='nav navbar-nav navbar-right'>
+                <li>
+                  <a href='https://github.com/kjavia/c3AngularJS' target='_blank'>
+                    Github
+                  </a>
+                </li>
+              </ul>
             </div>
           </div>
         </nav>
@@ -35,15 +44,15 @@
         </div>
       </div>
       <div class='row'>
-        <div class='col-lg-3'>
-          <div class='list-group'>
+        <div class='col-lg-9' role='main'>
+          <div ui-view></div>
+        </div>
+        <div class='col-lg-3' role='complementary'>
+          <div class='list-group' data-offset-bottom='200' data-offset-top='60' data-spy='affix'>
             <a class='list-group-item' ng-class='{active:$state.current.name == s.name}' ng-repeat='s in allStates' ui-sref='{{s.name}}'>
               {{s.data.title}}
             </a>
           </div>
-        </div>
-        <div class='col-lg-9'>
-          <div ui-view></div>
         </div>
       </div>
     </div>

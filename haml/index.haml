@@ -19,20 +19,25 @@
     .container.main{'ng-app' => 'demoApp'}
       .row
         %nav.navbar.navbar-default.navbar-fixed-top
-          .container-fluid
+          .container
             .navbar-header
               %a.navbar-brand{href: '#'}
                 C3-AngularJS Demo
+            .navbar-collapse.collapse
+              %ul.nav.navbar-nav.navbar-right
+                %li
+                  %a{'href' => 'https://github.com/kjavia/c3AngularJS', 'target' => '_blank'}
+                    Github
       .row
         .col-lg-12
           %h1 C3 AngularJS Directive Demos
       .row
-        .col-lg-3
-          .list-group
+        .col-lg-9{'role' => 'main'}
+          %div{'ui-view' => true}
+        .col-lg-3{'role' => 'complementary'}
+          .list-group{'data-spy' => 'affix', 'data-offset-top' => '60', 'data-offset-bottom' => '200'}
             %a.list-group-item{'ui-sref' => '{{s.name}}', 'ng-repeat' => 's in allStates', 'ng-class' => '{active:$state.current.name == s.name}'}
               {{s.data.title}}
-        .col-lg-9
-          %div{'ui-view' => true}
   %footer
     .container
       &copy; Ketan Javia, 2015. MIT License
