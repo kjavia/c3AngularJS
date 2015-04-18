@@ -61,3 +61,4 @@ In your template add below.
 
 ```
 
+For more detailed examples visit the [demo page](http://kjavia.github.io/c3AngularJS/)
