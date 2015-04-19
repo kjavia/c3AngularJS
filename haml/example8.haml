@@ -10,7 +10,7 @@
       %button.btn.btn-default{'ng-click' => 'vm.renderCharts()'}
         Render All
   .row
-    %table.table.table-striped.table-bordered.table-condensed
+    %table.table.table-striped.table-bordered.table-condensed{'ng-if' => 'vm.c3Charts["chart1"]'}
       %caption
         Rendered Charts
       %thead
@@ -18,7 +18,7 @@
           %td
             ID
           %td
-            Type
+            Unload Data
       %tbody
         %tr{'ng-repeat' => '(key, val) in vm.c3Charts'}
           %td

@@ -1,3 +1,4 @@
+/* global angular, $, Prism */
 (function() {
   'use strict';
   angular.module('demoApp', ['ui.router', 'c3-charts'])
@@ -67,28 +68,28 @@
         return {
           restrict: 'A',
           priority: 0,
-          compile: function(tElement, tAttributes, transclude) {
+          compile: function() {
             return {
-              post: function(scope, element, attributes) {
-                var $element = $(element);
+              post: function() {
                 $timeout(function() {
                   Prism.fileHighlight();
                 }, 0);
               }
-            }
+            };
           }
-        }
+        };
       }
     ])
     .run(function($rootScope, $state) {
       $rootScope.$state = $state;
       $rootScope.allStates = $.grep($state.get(), function(s) {
         return s.name.length > 0;
-      });;
+      });
     });
 
 })();
 
+/* global angular */
 (function() {
   'use strict';
   angular.module('demoApp')
@@ -120,6 +121,7 @@
   }
 })();
 
+/* global angular */
 (function() {
   'use strict';
   angular.module('demoApp')
@@ -128,38 +130,38 @@
   example2Ctrl.$inject = ['$scope', '$timeout', '$state'];
 
   function getOnChartClick($scope) {
-    return function(dataItem, element) {
+    return function(dataItem) {
       $scope.vm.clickItem = dataItem;
       $scope.$apply();
-    }
+    };
   }
 
   function getOnChartMouseOver($scope) {
-    return function(dataItem, element) {
+    return function(dataItem) {
       $scope.vm.mouseOverItem = dataItem;
       $scope.$apply();
-    }
+    };
   }
 
   function getOnChartMouseOut($scope) {
-    return function(dataItem, element) {
+    return function(dataItem) {
       $scope.vm.mouseOutItem = dataItem;
       $scope.$apply();
-    }
+    };
   }
 
   function getOnChartSelected($scope) {
-    return function(dataItem, element) {
+    return function(dataItem) {
       $scope.vm.selectedItem = dataItem;
       $scope.$apply();
-    }
+    };
   }
 
   function getOnChartUnSelected($scope) {
-    return function(dataItem, element) {
+    return function(dataItem) {
       $scope.vm.unSelectedItem = dataItem;
       $scope.$apply();
-    }
+    };
   }
 
   function example2Ctrl($scope, $timeout, $state) {
@@ -194,6 +196,7 @@
   }
 })();
 
+/* global angular */
 (function() {
   'use strict';
   angular.module('demoApp')
@@ -228,15 +231,16 @@
   }
 })();
 
+/* global angular, $ */
 (function() {
   'use strict';
   angular.module('demoApp')
     .controller('Example4Controller', example4Ctrl);
 
-  example4Ctrl.$inject = ['$scope', '$timeout'];
+  example4Ctrl.$inject = ['$scope'];
 
-  function example4Ctrl($scope, $timeout) {
-    var i, vm = this;
+  function example4Ctrl($scope) {
+    var vm = this;
     vm.elementId = 'example4';
     vm.items = [];
     vm.c3Charts = {};
@@ -340,10 +344,11 @@
     vm.renderCharts = function(data) {
       $("[c3-chart]").children().remove(); //clear the charts
       $scope.$broadcast('c3.generate', data);
-    }
+    };
   }
 })();
 
+/* global angular */
 (function() {
   'use strict';
   angular.module('demoApp')
@@ -384,10 +389,11 @@
       }
 
       $scope.$broadcast('c3.transform', eventData);
-    }
+    };
   }
 })();
 
+/* global angular */
 (function() {
     'use strict';
     angular.module('demoApp')
@@ -423,12 +429,13 @@
         id: 'example6',
         width: 500,
         height: 200
-      }
+      };
       $scope.$broadcast('c3.resize', eventData);
-    }
+    };
   }
 })();
 
+/* global angular */
 (function() {
   'use strict';
   angular.module('demoApp')
@@ -469,21 +476,22 @@
         eventData = {
           id: 'example7',
           data: newData
-        }
+        };
       $scope.$broadcast('c3.load', eventData);
-    }
+    };
   }
 })();
 
+/* global angular, $ */
 (function() {
   'use strict';
   angular.module('demoApp')
     .controller('Example8Controller', example8Ctrl);
 
-  example8Ctrl.$inject = ['$scope', '$timeout'];
+  example8Ctrl.$inject = ['$scope'];
 
-  function example8Ctrl($scope, $timeout) {
-    var i, vm = this;
+  function example8Ctrl($scope) {
+    var vm = this;
     vm.elementId = 'example8';
     vm.items = [];
     vm.c3Charts = {};
@@ -587,6 +595,6 @@
     vm.renderCharts = function(data) {
       $("[c3-chart]").children().remove(); //clear the charts
       $scope.$broadcast('c3.generate', data);
-    }
+    };
   }
 })();
