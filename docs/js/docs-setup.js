@@ -14,12 +14,12 @@ NG_DOCS={
     },
     {
       "section": "api",
-      "id": "c3-charts:c3-chart",
+      "id": "{string} HTML element ID of the Chart parent.",
       "shortName": "c3-chart",
       "type": "directive",
       "moduleName": "c3-charts:c3-chart",
       "shortDescription": "A basic directive for the c3.js chart library",
-      "keywords": "api basic c3 c3-chart c3-charts chart completely controller directive div drive finance generation group html js library member module myc3compatibleobject object on-chart-click on-chart-mouse-over onclick onmouseover raw scope widget"
+      "keywords": "api apply basic binding bound c3 c3-chart c3-charts chart charts completely data directive div drive element entire event finance generation group html including instance js library module myc3compatibleobject object on-chart-click on-chart-mouse-over onclick onmouseover operations parent raw reference set settings widget"
     }
   ],
   "apis": {

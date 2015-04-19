@@ -28,8 +28,13 @@
           on-chart-click='onClick' on-chart-mouse-over='onMouseOver'></div>
      </file>
    </example>
- * @raw {object} A object member of the controller scope
- * that will completely drive the generation of the c3 widget.
+ * @raw {object} Entire C3 chart settings, including data,
+ * which will completely drive the generation of the c3 widget.
+ * @c3Charts {object} A reference to this chart instance is made available
+ * to the object that is bound via this binding.
+ * @id {string} HTML element ID of the Chart parent.
+ * @group {string} name to apply operations on a set of charts.
+ * Without a group name in event data, all charts will be affected.
  */
 (function() {
   'use strict';
@@ -42,7 +47,8 @@
       scope: {
         id: '@',
         group: '@',
-        raw: '='
+        raw: '=',
+        c3Charts: '='
       },
       template: '<div />'
     };
@@ -81,6 +87,9 @@
       if (isEventApplicable(scope, data)) {
         scope.raw.bindto = scope.raw.bindto || '#' + scope.id;
         chart = c3.generate(scope.raw);
+        if(scope.c3Charts) {
+          scope.c3Charts[scope.id] = chart;
+        }
       }
     }
 
@@ -106,9 +115,16 @@
       }
     }
 
+    function onChartLoad(event, data) {
+      if (chart && isEventApplicable(scope, data)) {
+        chart.load(data.data);
+      }
+    }
+
     scope.$on('c3.generate', onGenerateCharts);
     scope.$on('c3.resize', onChartResize);
     scope.$on('c3.transform', onChartTransform);
+    scope.$on('c3.load', onChartLoad);
   }
 
 })();
