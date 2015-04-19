@@ -4,6 +4,14 @@
     Example with mouse event handlers. Events supported on data
     items are onmouseover, onmouseout, onselected, onclick.
   </p>
+  <div class='well'>
+    Note: There are other C3 event callbacks not listed here which can be
+    referenced in your controler and will still work just like the ones in this demo.
+    Check out the C3 Reference page
+    <a href='http://c3js.org/reference.html' target='_target'>
+      here
+    </a>
+  </div>
   <div c3-chart group='{{vm.group}}' id='{{vm.elementId}}' raw='vm.data'></div>
   <p>click : {{vm.clickItem | json}}</p>
   <p>mouseover : {{vm.mouseOverItem | json}}</p>

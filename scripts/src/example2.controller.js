@@ -1,3 +1,4 @@
+/* global angular */
 (function() {
   'use strict';
   angular.module('demoApp')
@@ -6,38 +7,38 @@
   example2Ctrl.$inject = ['$scope', '$timeout', '$state'];
 
   function getOnChartClick($scope) {
-    return function(dataItem, element) {
+    return function(dataItem) {
       $scope.vm.clickItem = dataItem;
       $scope.$apply();
-    }
+    };
   }
 
   function getOnChartMouseOver($scope) {
-    return function(dataItem, element) {
+    return function(dataItem) {
       $scope.vm.mouseOverItem = dataItem;
       $scope.$apply();
-    }
+    };
   }
 
   function getOnChartMouseOut($scope) {
-    return function(dataItem, element) {
+    return function(dataItem) {
       $scope.vm.mouseOutItem = dataItem;
       $scope.$apply();
-    }
+    };
   }
 
   function getOnChartSelected($scope) {
-    return function(dataItem, element) {
+    return function(dataItem) {
       $scope.vm.selectedItem = dataItem;
       $scope.$apply();
-    }
+    };
   }
 
   function getOnChartUnSelected($scope) {
-    return function(dataItem, element) {
+    return function(dataItem) {
       $scope.vm.unSelectedItem = dataItem;
       $scope.$apply();
-    }
+    };
   }
 
   function example2Ctrl($scope, $timeout, $state) {

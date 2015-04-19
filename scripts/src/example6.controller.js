@@ -1,3 +1,4 @@
+/* global angular */
 (function() {
     'use strict';
     angular.module('demoApp')
@@ -33,8 +34,8 @@
         id: 'example6',
         width: 500,
         height: 200
-      }
+      };
       $scope.$broadcast('c3.resize', eventData);
-    }
+    };
   }
 })();

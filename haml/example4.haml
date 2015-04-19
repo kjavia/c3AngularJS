@@ -16,7 +16,6 @@
         Render All
   .row{'style' => 'margin-bottom:30px;'}
     .col-lg-4{'ng-repeat' => 'c in vm.items'}
-      {{vm.isLoading}}
       %div{'c3-chart' => true, id: '{{c.elementId}}', raw: 'c', group: '{{c.group}}'}
 
   %div{'ng-include' => true, src: '"tabs.html"'}

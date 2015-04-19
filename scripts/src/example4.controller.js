@@ -1,15 +1,16 @@
+/* global angular, $ */
 (function() {
   'use strict';
   angular.module('demoApp')
-    .controller('Example4Controller', example1Ctrl);
+    .controller('Example4Controller', example4Ctrl);
 
-  example1Ctrl.$inject = ['$scope', '$timeout'];
+  example4Ctrl.$inject = ['$scope'];
 
-  function example1Ctrl($scope, $timeout) {
-    var i, vm = this;
+  function example4Ctrl($scope) {
+    var vm = this;
     vm.elementId = 'example4';
     vm.items = [];
-
+    vm.c3Charts = {};
     // add a line chart to group1
     vm.items.push({
       elementId: 'chart1',
@@ -110,6 +111,6 @@
     vm.renderCharts = function(data) {
       $("[c3-chart]").children().remove(); //clear the charts
       $scope.$broadcast('c3.generate', data);
-    }
+    };
   }
 })();

@@ -1,3 +1,4 @@
+/* global angular */
 (function() {
   'use strict';
   angular.module('demoApp')
@@ -38,6 +39,6 @@
       }
 
       $scope.$broadcast('c3.transform', eventData);
-    }
+    };
   }
 })();

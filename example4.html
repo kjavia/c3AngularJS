@@ -23,7 +23,6 @@
   </div>
   <div class='row' style='margin-bottom:30px;'>
     <div class='col-lg-4' ng-repeat='c in vm.items'>
-      {{vm.isLoading}}
       <div c3-chart group='{{c.group}}' id='{{c.elementId}}' raw='c'></div>
     </div>
   </div>
