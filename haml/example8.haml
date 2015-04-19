@@ -1,0 +1,33 @@
+%div{'ng-controller' => 'Example8Controller as vm'}
+  %h3 Example 8
+  %p
+    When Charts are generated, they will be available in the c3Charts scope variable as map.
+    The chart id is the key of the map while the chart instance is the value.
+    Having a chart instance available on the controller makes it possible to
+    manipulate it directly without going through the directive.
+  .row
+    .col-lg-12
+      %button.btn.btn-default{'ng-click' => 'vm.renderCharts()'}
+        Render All
+  .row
+    %table.table.table-striped.table-bordered.table-condensed
+      %caption
+        Rendered Charts
+      %thead
+        %tr
+          %td
+            ID
+          %td
+            Type
+      %tbody
+        %tr{'ng-repeat' => '(key, val) in vm.c3Charts'}
+          %td
+            {{key}}
+          %td
+            .btn.btn-default.btn-xs{'ng-click' => 'val.unload("data1")'}
+              Unload {{key}} data1
+
+  .row{'style' => 'margin-bottom:30px;'}
+    .col-lg-4{'ng-repeat' => 'c in vm.items'}
+      %div{'c3-chart' => true, id: '{{c.elementId}}', 'c3-charts' => 'vm.c3Charts', raw: 'c', group: '{{c.group}}'}
+  %div{'ng-include' => true, src: '"tabs.html"'}

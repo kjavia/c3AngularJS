@@ -1,0 +1,12 @@
+%div{'ng-controller' => 'Example7Controller as vm'}
+  %h3 Example 7
+  %p
+    This demo shows usage of the 'c3.load' event to update a chart
+    with new data after it is rendered. This includes actual data and chart settings.
+  .row
+    .col-lg-3
+      .btn.btn-default{'ng-click' => 'vm.loadData()'}
+        Load new data
+
+  %div{'c3-chart' => true, id: '{{vm.elementId}}', raw: 'vm.data', group: '{{vm.group}}'}
+  %div{'ng-include' => true, src: '"tabs.html"'}
